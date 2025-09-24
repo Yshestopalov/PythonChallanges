@@ -13,6 +13,7 @@ PERSON_SHADOW_LENGTH = 1.04
 EIFFEL_TOWER_SHADOW_LENGTH = 185.5
 
 # --- Process ---
+
 def height_from_shadows(reference_height, reference_shadow_length, target_shadow_length):
     """Calculates an object's height based on its shadow length and a reference object.
 

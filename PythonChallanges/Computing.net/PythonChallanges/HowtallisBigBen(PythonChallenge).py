@@ -1,53 +1,46 @@
-#How tall is Big Ben? - www.101computing.net/how-tall-is-big-ben-python-challenge/
+# How tall is Big Ben? - www.101computing.net/how-tall-is-big-ben-python-challenge/
 
-# Input
+# --- Input Data ---
 
-# l: The length of the telephone box shadow.
-# h: The height of the telephone box.
-# L: The length of the Elizabeth Tower shadow.
-l_eliz, h_eliz, L_eliz = 1.74, 2.51, 66.55 # meters
+# Case 1: Elizabeth Tower
+PHONE_BOOTH_HEIGHT = 2.51
+PHONE_BOOTH_SHADOW_LENGTH = 1.74
+ELIZABETH_TOWER_SHADOW_LENGTH = 66.55
 
-l_eiff, h_eiff, L_eiff = 1.04, 1.85, 185.5 # meters
+# Case 2: Eiffel Tower
+PERSON_HEIGHT = 1.85
+PERSON_SHADOW_LENGTH = 1.04
+EIFFEL_TOWER_SHADOW_LENGTH = 185.5
 
-# Process
+# --- Process ---
+def height_from_shadows(reference_height, reference_shadow_length, target_shadow_length):
+    """Calculates an object's height based on its shadow length and a reference object.
 
-# Figures out the height of the Elizabeth Tower.
-def elizabeth_tower_height(l, h, L):
-    """
-    Calculate the height of the Elizabeth Tower using shadow proportions.
-
-    Parameters:
-        l (float): Length of the shadow of the telephone booth.
-        h (float): Height of the telephone booth.
-        L (float): Length of the shadow of the Elizabeth Tower.
-
-    Returns:
-        float: Estimated height of the Elizabeth Tower.
-    """
-    return (h * L) / l
-
-# Figures out the height of the Eiffel Tower.
-def eiffel_tower_height(l, h, L):
-    """
-    Calculate the height of the Eiffel Tower using shadow proportions.
-
-    Parameters:
-        l (float): Length of the shadow of the person.
-        h (float): Height of the person.
-        L (float): Length of the shadow of the Eiffel Tower.
+    Args:
+        reference_height (float): The height of the known reference object.
+        reference_shadow_length (float): The length of the reference object's shadow.
+        target_shadow_length (float): The length of the target object's shadow.
 
     Returns:
-        float: Estimated height of the Eiffel Tower.
+        float: The estimated height of the target object.
     """
-    return (h * L) / l
+    return (reference_height * target_shadow_length) / reference_shadow_length
 
+# --- Calculations and Output ---
 
-# Output
+# Elizabeth Tower
+elizabeth_tower_height = height_from_shadows(
+    PHONE_BOOTH_HEIGHT,
+    PHONE_BOOTH_SHADOW_LENGTH,
+    ELIZABETH_TOWER_SHADOW_LENGTH
+)
+print(f"The Elizabeth Tower is {round(elizabeth_tower_height, 1)} meters tall.")
 
-tower_height = round(elizabeth_tower_height(l_eliz, h_eliz, L_eliz), 1)
-print(tower_height)
-
-tower_height = round(eiffel_tower_height(l_eiff, h_eiff, L_eiff), 1)
-print(tower_height)
-
+# Eiffel Tower
+eiffel_tower_height = height_from_shadows(
+    PERSON_HEIGHT,
+    PERSON_SHADOW_LENGTH,
+    EIFFEL_TOWER_SHADOW_LENGTH
+)
+print(f"The Eiffel Tower is {round(elizabeth_tower_height, 1)} meters tall.")
 

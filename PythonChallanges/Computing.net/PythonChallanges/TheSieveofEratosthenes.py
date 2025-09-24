@@ -22,8 +22,10 @@ def sieve_of_eratosthenes(last_integer):
     is_prime[0] = is_prime[1] = False
 
     # Seive algorithm
+    # Optimized range for faster result
     for number in range(2, int(last_integer**0.5) + 1):
         if is_prime[number]:
+            # Avoid retrying already marked multiples like number * 2
             for multiple in range(number ** 2, last_integer + 1, number):
                 is_prime[multiple] = False
 

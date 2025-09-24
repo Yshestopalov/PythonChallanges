@@ -7,14 +7,6 @@ LAST_INTEGER = 100
 # --- Process ---
 
 def sieve_of_eratosthenes(last_integer):
-    """Finds all prime numbers between the interval 0 to last_integer.
-    
-    Args:
-        last_integer (int): The end of the interval.
-
-    Returns:
-        list: A list containing all prime numbers in the interval.
-    """
     # boolean list to track prime numbers
     is_prime = [True] * (last_integer + 1)
 

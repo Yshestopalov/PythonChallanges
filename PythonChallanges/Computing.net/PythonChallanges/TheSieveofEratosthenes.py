@@ -21,7 +21,7 @@ def sieve_of_eratosthenes(last_integer):
     # 0 and 1 are not prime numbers
     is_prime[0] = is_prime[1] = False
 
-    # Seive algorithm
+    # Sieve algorithm
     # Optimized range for faster result
     for number in range(2, int(last_integer**0.5) + 1):
         if is_prime[number]:
